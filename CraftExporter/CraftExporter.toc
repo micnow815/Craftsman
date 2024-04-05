@@ -1,0 +1,6 @@
+## Interface: 11200
+## Title: CraftExporter
+## Author: Michal Nowak
+## Version: 1.0
+
+CraftExporter.lua
