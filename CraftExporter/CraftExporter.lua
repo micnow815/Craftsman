@@ -1,4 +1,4 @@
-SLASH_CE_LW1 = '/ce-lw';
+SLASH_EXPORT1 = '/ce';
 
 -- This function will create a frame and an edit box the first time it's called.
 -- Subsequent calls will reuse the existing frame and edit box.
@@ -57,7 +57,7 @@ function PrintKnownTradeSkillsToFrame()
         -- Check if we have a valid tradeskill name before proceeding
         if tradeSkillName and tradeSkillName ~= "UNKNOWN" then
             -- Start the list with the tradeskill name
-            skillListText = "Listing known skills for: " .. tradeSkillName .. "\n"
+            skillListText = "!" .. tradeSkillName .. "\n"
             local numSkills = GetNumTradeSkills()
             if numSkills > 0 then
                 for i = 1, numSkills do
@@ -66,9 +66,9 @@ function PrintKnownTradeSkillsToFrame()
                     if not skillName then break end
                     -- Add categories and skills to the list
                     if skillType == "header" then
-                        skillListText = skillListText .. "\n" .. skillName .. ":\n"
+                        skillListText = skillListText .. "@" .. skillName .. "\n"
                     elseif skillType ~= "header" then
-                        skillListText = skillListText .. " - " .. skillName .. "\n"
+                        skillListText = skillListText .. "-" .. skillName .. "\n"
                     end
                 end
             else
@@ -88,4 +88,4 @@ function PrintKnownTradeSkillsToFrame()
 end
 
 -- Hook up the slash command
-SlashCmdList["CE_LW"] = PrintKnownTradeSkillsToFrame
+SlashCmdList["EXPORT"] = PrintKnownTradeSkillsToFrame
