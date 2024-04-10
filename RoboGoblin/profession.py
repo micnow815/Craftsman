@@ -16,6 +16,9 @@ class Profession:
         self.name = name
         self.categories = {}
         self.active_category = None
+    
+    def return_name(self):
+        return self.name
 
     def add_category(self, category_name):
         category = Category(category_name)
@@ -33,3 +36,9 @@ class Profession:
 
         return items
         
+    def get_all_categories(self):
+        items = []
+        for category_name, category in self.categories.items():
+            items.append(category_name)
+
+        return items

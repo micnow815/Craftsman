@@ -34,7 +34,16 @@ async def on_message(message):
             elif item[0] == '-':
                 profession.add_pattern(item[1:])
         
-        print(profession.print_category('Mail'))
+        # print(profession.print_category('Mail'))
+        # print(profession.get_all_categories())
+
+        embed = discord.Embed(title=f"{message.author.name}'s {profession.return_name()}", color=0x00ff00)
+
+        for item in profession.get_all_categories():
+            embed.add_field(name=item, value=profession.print_category(item), inline=True)
+
+        # embed.add_field(name="Developer", value="devel", inline=True)
+        # embed.add_field(name="Techie", value="techie", inline=True)
         
 
 client.run(TOKEN)
