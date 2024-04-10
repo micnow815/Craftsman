@@ -42,3 +42,12 @@ class Profession:
             items.append(category_name)
 
         return items
+    
+    def patterns_in_category(self, category_name):
+        """Returns the number of patterns in a specified category."""
+        category = self.categories.get(category_name)
+        if category is not None:
+            return len(category.patterns)
+        else:
+            print(f"No category found with the name '{category_name}'.")
+            return 0
